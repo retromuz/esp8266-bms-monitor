@@ -11,4 +11,15 @@ Capacity for each cell is currently based purely on voltage.
 When a cell is being balanced, the outline animates back and forth between black and purple.
 Currently configured for a 14S battery. As of now this is not easily configurable to support other cell configurations.
 
+Connection from ESP8266 to SP15S020 BMS
+=
+SP15S020 BMS has a UART serial port which works on 9600 baud rate. It provides 4 wires. 12V, TX, RX, GND.
+ESP8266 will open up a software based serial UART port when using this code on RX: GPIO4, TX:GPIO5.
+
+Below are the connections:
+BMS GND <> ESP8266 GND
+BMS 12V <> ESP8266 VIN (nodemcu v3 has one)
+BMS TX <> ESP8266 GPIO4 (software RX)
+BMS RX <> ESP8266 GPIO5 (software TX)
+
 LICENSE: MIT
