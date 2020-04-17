@@ -7,3 +7,7 @@ Uses ESP8266 as brain. You can monitor with a browser either on mobile or deskto
 
 
 ![Sample Screenshot](https://karunadheera.com/bms/sample.png)
+
+Voltages are being shown below each cell.
+Capacity for each cell is currently based purely on voltage.
+When a cell is being balanced, the outline animates back and forth between black and purple.
