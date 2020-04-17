@@ -9,5 +9,6 @@ Uses ESP8266 as brain. You can monitor with a browser either on mobile or deskto
 Voltages are being shown below each cell.
 Capacity for each cell is currently based purely on voltage.
 When a cell is being balanced, the outline animates back and forth between black and purple.
+Currently configured for a 14S battery. As of now this is not easily configurable to support other cell configurations.
 
 LICENSE: MIT
