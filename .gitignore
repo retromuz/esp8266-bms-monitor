@@ -1,0 +1,7 @@
+.pio
+.piolibdeps
+.settings
+.cproject
+.project
+.travis.yml
+data/firmware.properties
