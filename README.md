@@ -4,7 +4,8 @@ A web based battery monitoring system for SP15S020 BMS
 Uses ESP8266 as brain. You can monitor with a browser either on mobile or desktop. Uses SVG.js for rendering cell icons. Ask for anymore features needed. Happy to implement.
 
 
-![Sample Screenshot](https://karunadheera.com/bms/sample.png)
+![Sample Screenshot - Balancing](https://karunadheera.com/bms/sample.png)
+![Sample Screenshot - Charging](http://karunadheera.com/bms/sample-charging.png)
 
 Voltages are being shown below each cell.
 Capacity for each cell is currently based purely on voltage.
