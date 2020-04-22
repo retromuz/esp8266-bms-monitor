@@ -27,4 +27,8 @@ BMS TX <> ESP8266 GPIO4 (software RX)
 
 BMS RX <> ESP8266 GPIO5 (software TX)
 
+Update 2020-04-22 - Temperature monitoring implemented
+=
+![Sample Screenshot - Temperature monitoring](http://karunadheera.com/bms/sample-temperatures.png)
+
 LICENSE: MIT
