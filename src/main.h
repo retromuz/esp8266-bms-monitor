@@ -25,6 +25,8 @@
 #define FMT_VOLTAGES "[%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d]"
 #define CONTENT_TYPE_APPLICATION_JSON "application/json"
 
+#define SERIAL_RETRIES 128
+
 #ifdef __cplusplus
 extern "C" {
 #endif

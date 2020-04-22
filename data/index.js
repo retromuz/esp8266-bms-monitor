@@ -53,10 +53,10 @@ class Cell {
 		if (this.balancing != balancing) {
 			if (balancing) {
 				this.outline.animate(480, 480, 'now').attr({fill: '#806ef1'}).loop(true, true);
-				//this.outline.attr({fill: '#806ef1'});
+				// this.outline.attr({fill: '#806ef1'});
 			} else {
 				this.outline.timeline().stop();
-				//this.outline.attr({fill: '#000000'});
+				// this.outline.attr({fill: '#000000'});
 			}
 		}
 		this.balancing = balancing;
@@ -118,6 +118,6 @@ $(document).ready(function() {
 		cells.push(cell);
 		cell.getDrawing().addTo('cells');
 	}
-    setTimeout(function(){v(cells);}, 2000);
+    setTimeout(function(){v(cells);}, 0);
 }); 
 

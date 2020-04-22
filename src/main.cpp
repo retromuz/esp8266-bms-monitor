@@ -216,10 +216,7 @@ void bmsv() {
 	Array av;
 	initArray(&av, 35);
 	bmsWrite(data, 7);
-	int loops = 0;
-	while (loops++ < 128 && av.used == 0) {
-		bmsRead(&av);
-	}
+	bmsRead(&av);
 	if (av.used < 5 || av.array[0] != 0xdd) {
 		freeArray(&av);
 		return;
@@ -257,10 +254,7 @@ void bmsb() {
 	Array ab;
 	initArray(&ab, 34);
 	bmsWrite(data, 7);
-	int loops = 0;
-	while (loops++ < 128 && ab.used == 0) {
-		bmsRead(&ab);
-	}
+	bmsRead(&ab);
 	if (ab.used < 5 || ab.array[0] != 0xdd) {
 		freeArray(&ab);
 		return;
@@ -299,16 +293,19 @@ void bmsWrite(char *data, int len) {
 }
 
 void bmsRead(Array *a) {
+	int loops = 0;
 	int rdlen = 0;
 	char r = 0;
-	while (1) {
-		delay(2);
-		rdlen = bmsSerial.available();
-		if (rdlen > 0) {
-			r = bmsSerial.read();
-			insertArray(a, r);
-		} else {
-			break;
+	while (loops++ < SERIAL_RETRIES && a->used == 0) {
+		while (1) {
+			delay(2);
+			rdlen = bmsSerial.available();
+			if (rdlen > 0) {
+				r = bmsSerial.read();
+				insertArray(a, r);
+			} else {
+				break;
+			}
 		}
 	}
 }
@@ -325,10 +322,7 @@ void initBmsStub(char *data, int len) {
 	bmsWrite(data, len);
 	Array a;
 	initArray(&a, 8);
-	int loops = 0;
-	while (loops++ < 128) {
-		bmsRead(&a);
-	}
+	bmsRead(&a);
 	Serial.printf("==== a.used: %d\r\n", a.used);
 	freeArray(&a);
 }
@@ -336,10 +330,7 @@ void initBmsStub(char *data, int len) {
 void bmsDrainSerial() {
 	Array a;
 	initArray(&a, 32);
-	int loops = 0;
-	while (loops++ < 24) {
-		bmsRead(&a);
-	}
+	bmsRead(&a);
 	Serial.printf("drain: ");
 	freeArray(&a);
 }
