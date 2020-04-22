@@ -273,9 +273,15 @@ void bmsb() {
 	(ab.array[12] << 8) | ab.array[13], // cycle times
 	(ab.array[14] << 8) | ab.array[15], // date of manufacture
 	ab.array[16] << 8 | ab.array[17], // cell balance state 1s-16s
-	ab.array[18], ab.array[19], ab.array[20], ab.array[21], ab.array[22],
-			ab.array[23], ab.array[24], ab.array[25], ab.array[26],
-			ab.array[27], ab.array[28], ab.array[29], ab.array[30]);
+	ab.array[18], ab.array[19], // cell balance state 17s-32s
+			ab.array[20], ab.array[21], // protection state
+			ab.array[22], // software version
+			ab.array[23], // Percentage of remaining capacity
+			ab.array[24], // MOSFET control status
+			ab.array[25], // battery serial number
+			ab.array[26], // Number of NTCs
+			((ab.array[27] << 8) | ab.array[28]), // NTC 0, high bit first, Using absolute temperature transmission, 2731+ (actual temperature *10), 0 degrees = 2731, 25 degrees = 2731+25*10 = 2981
+			((ab.array[29] << 8) | ab.array[30])); // NTC 1, high bit first, Using absolute temperature transmission, 2731+ (actual temperature *10), 0 degrees = 2731, 25 degrees = 2731+25*10 = 2981
 	freeArray(&ab);
 	sb = String(buf);
 	free(buf);

@@ -95,7 +95,17 @@ function b(cells) {
 			let nomcapacity = data[3]/100;
 			let cycles = data[4];
 			let cellbalance = data[6].toString(2);
-			$('.summary').html('<span>Battery Voltage : ' + voltage.toFixed(2) + 'V</span><br /><span>Current : ' + current.toFixed(2) + 'A</span><br /><span>Power : ' + power.toFixed(2) + 'W</span><br /><span>Remaining Capacity : ' + remcapacity.toFixed(2) + 'Ah</span><br /><span>Nominal Capacity : ' + nomcapacity.toFixed(2) + 'Ah</span><br /><span>Cycles : ' + cycles + '</span><br />' );
+			let temp0 = ((data[16] - 2731)/10).toFixed(1);
+			let temp1 = ((data[17] - 2731)/10).toFixed(1);
+			$('.summary').html('<span>Battery Voltage : ' 
+					+ voltage.toFixed(2) + 'V</span><br /><span>Current : ' 
+					+ current.toFixed(2) + 'A</span><br /><span>Power : ' 
+					+ power.toFixed(2) + 'W</span><br /><span>Remaining Capacity : ' 
+					+ remcapacity.toFixed(2) + 'Ah</span><br /><span>Nominal Capacity : ' 
+					+ nomcapacity.toFixed(2) + 'Ah</span><br /><span>Cycles : ' 
+					+ cycles + '</span><br /><span>Temperature 0 : ' 
+					+ temp0 + '&deg;C</span><br /><span>Temperature 1 : ' 
+					+ temp1 + '&deg;C</span><br />' );
 			let x = 0;
 			while((x < cells.length)) {
 				cells[x].setBalancing(cellbalance & (0b1 << x));
