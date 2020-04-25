@@ -39,9 +39,9 @@ void ISRwatchdog() {
 		Serial.println("watchdog reset");
 		ESP.reset();
 	}
-	if ((timeClient.getEpochTime() - lastSerialCallAt > 3)) {
-		bmsInit = 1;
-	}
+	bmsInit = 1;
+//	if ((timeClient.getEpochTime() - lastSerialCallAt > 1)) {
+//	}
 }
 
 void setup(void) {
