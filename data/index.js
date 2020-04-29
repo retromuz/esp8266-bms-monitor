@@ -120,7 +120,7 @@ function q(cells) {
 						voltage.toFixed(2) + 'V</span><br /><span>Current : ' +
 						current.toFixed(2) + 'A</span><br /><span>Power : ' +
 						power.toFixed(2) + 'W</span><br /><span>Remaining Capacity : ' +
-						remcapacity.toFixed(2) + 'Ah (' + data[12] + '%)</span><br /><span>Nominal Capacity : ' +
+						remcapacity.toFixed(2) + 'Ah (' + remPerc + '%)</span><br /><span>Nominal Capacity : ' +
 						nomcapacity.toFixed(2) + 'Ah</span><br /><span>Cycles : ' +
 						cycles + '</span><br /><span>Temperature 0 : ' +
 						temp0 + '&deg;C</span><br /><span>Temperature 1 : ' +

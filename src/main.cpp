@@ -154,6 +154,9 @@ void setupWebServer() {
 	server.on("/index.js", HTTP_GET, [](AsyncWebServerRequest *request) {
 		request->send(SPIFFS, "/index.js");
 	});
+	server.on("/favicon.ico", HTTP_GET, [](AsyncWebServerRequest *request) {
+		request->send(SPIFFS, "/favicon.ico");
+	});
 	server.on("/v", HTTP_GET, [](AsyncWebServerRequest *request) {
 		request->send_P(200, CONTENT_TYPE_APPLICATION_JSON, sv.c_str());
 	});
