@@ -4,8 +4,8 @@ A web based battery monitoring system for SP15S020 BMS
 Uses ESP8266 as brain. You can monitor with a browser either on mobile or desktop. Uses SVG.js for rendering cell icons. Ask for anymore features needed. Happy to implement.
 
 
-![Sample Screenshot - Balancing](https://karunadheera.com/bms/sample.png)
-![Sample Screenshot - Charging](http://karunadheera.com/bms/sample-charging.png)
+![Sample Screenshot - Balancing](https://raw.githubusercontent.com/retromuz/esp8266-bms-monitor/master/screens/sample.png)
+![Sample Screenshot - Charging](https://raw.githubusercontent.com/retromuz/esp8266-bms-monitor/master/screens/sample-charging.png)
 
 Voltages are being shown below each cell.
 Capacity for each cell is currently based purely on voltage.
@@ -29,6 +29,6 @@ BMS RX <> ESP8266 GPIO5 (software TX)
 
 Update 2020-04-22 - Temperature monitoring implemented
 =
-![Sample Screenshot - Temperature monitoring](http://karunadheera.com/bms/sample-temps.png)
+![Sample Screenshot - Temperature monitoring](https://raw.githubusercontent.com/retromuz/esp8266-bms-monitor/master/screens/sample-temps.png)
 
 LICENSE: MIT
