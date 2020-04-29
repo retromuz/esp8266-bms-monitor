@@ -102,26 +102,30 @@ function q(cells) {
 			let cellbalance = data[6].toString(2);
 			let temp0 = ((data[16] - 2731) / 10).toFixed(1);
 			let temp1 = ((data[17] - 2731) / 10).toFixed(1);
-			$('.summary').html('<span>Battery Voltage : ' +
-				voltage.toFixed(2) + 'V</span><br /><span>Current : ' +
-				current.toFixed(2) + 'A</span><br /><span>Power : ' +
-				power.toFixed(2) + 'W</span><br /><span>Remaining Capacity : ' +
-				remcapacity.toFixed(2) + 'Ah</span><br /><span>Remaining Capacity : ' +
-				data[12] + '%</span><br /><span>Nominal Capacity : ' +
-				nomcapacity.toFixed(2) + 'Ah</span><br /><span>Cycles : ' +
-				cycles + '</span><br /><span>Temperature 0 : ' +
-				temp0 + '&deg;C</span><br /><span>Temperature 1 : ' +
-				temp1 + '&deg;C</span><br />');
 			$.ajax({
 				url: '/v',
 				type: 'GET',
 				dataType: 'json',
-				success: function (data) {
-					let h = '';
-					let x = 0;
-					for (let x = 0; x < data.length; x++) {
-						cells[x].setVoltage(data[x], battV, remPerc);
+				success: function (datav) {
+					let lowest = datav.reduce((prev, curr) => {
+						return prev < curr ? prev : curr;
+					});
+					let highest = datav.reduce((prev, curr) => {
+						return prev > curr ? prev : curr;
+					});
+					for (let x = 0; x < datav.length; x++) {
+						cells[x].setVoltage(datav[x], battV, remPerc);
 					}
+					$('.summary').html('<span>Battery Voltage : ' +
+						voltage.toFixed(2) + 'V</span><br /><span>Current : ' +
+						current.toFixed(2) + 'A</span><br /><span>Power : ' +
+						power.toFixed(2) + 'W</span><br /><span>Remaining Capacity : ' +
+						remcapacity.toFixed(2) + 'Ah (' + data[12] + '%)</span><br /><span>Nominal Capacity : ' +
+						nomcapacity.toFixed(2) + 'Ah</span><br /><span>Cycles : ' +
+						cycles + '</span><br /><span>Temperature 0 : ' +
+						temp0 + '&deg;C</span><br /><span>Temperature 1 : ' +
+						temp1 + '&deg;C</span><br /><span>Cell Deviation : ' +
+						(highest - lowest) + 'mV</span>');
 				},
 				error: function (xhr, opts, err) {
 					console.error(err);
