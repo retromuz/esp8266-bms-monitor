@@ -1,4 +1,4 @@
-END OF LIFE - NOT RECOMMMENDED FOR NEW DESIGNS
+END OF LIFE - NOT RECOMMENDED FOR NEW DESIGNS
 =
 This is now replaced by https://github.com/retromuz/esp32-bms-monitor - A web based battery monitoring system for SP15S020 BMS
 =
