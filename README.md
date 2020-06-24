@@ -1,4 +1,6 @@
-END OF LIFE - This is now replaced by https://github.com/retromuz/esp32-bms-monitor - A web based battery monitoring system for SP15S020 BMS
+END OF LIFE - NOT RECOMMMENDED FOR NEW DESIGNS
+=
+This is now replaced by https://github.com/retromuz/esp32-bms-monitor - A web based battery monitoring system for SP15S020 BMS
 =
 
 Uses ESP8266 as brain. You can monitor with a browser either on mobile or desktop. Uses SVG.js for rendering cell icons. Ask for anymore features needed. Happy to implement.
